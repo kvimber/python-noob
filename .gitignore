@@ -1,0 +1,14 @@
+#####################################################################
+# git ignore patterns                                               #
+#                                                                   #
+# taken as samples from github's Python gitignore:                  #
+#   https://github.com/github/gitignore/blob/main/Python.gitignore  #
+#                                                                   #
+# by: Kevin <kvimber@gmail.com>                                     #
+# on: Tue, May 17th, 2022                                           #
+#####################################################################
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
