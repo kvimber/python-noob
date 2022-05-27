@@ -13,11 +13,19 @@ def test_dict_merge_operator():
     assert dict1 == {"a": 1, "b": 2, "c": 3, "d": 4, "e": 5, "f": 6}
 
 
-def test_dict_merge_conflicts():
+def test_dict_merge_conflict_merge_operator():
     dict1 = {"a": 1, "b": 2, "c": 3}  # notice that both dicts have a 'c' key
     dict2 = {"d": 4, "e": 5, "c": 6}
 
     dict1 |= dict2  # looks like the right-side overrides in a collision
+    assert dict1["c"] == 6  # verify this
+
+
+def test_dict_merge_conflict_update_fn():
+    dict1 = {"a": 1, "b": 2, "c": 3}  # notice that both dicts have a 'c' key
+    dict2 = {"d": 4, "e": 5, "c": 6}
+
+    dict1.update(dict2)  # looks like the right-side overrides in a collision
     assert dict1["c"] == 6  # verify this
 
 
