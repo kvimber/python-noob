@@ -27,7 +27,12 @@ jobs:
           command: |
             python --version
             poetry --version
-      - run: poetry run pytest
+      - run:
+          name: Install Dependencies
+          command: poetry install
+      - run:
+          name: Test
+          command: poetry run pytest
 
 
 # Orchestrate jobs using workflows
