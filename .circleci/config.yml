@@ -17,6 +17,18 @@ jobs:
       - run:
           name: "Say hello"
           command: "echo Hello, World!"
+  test:
+    docker:
+      - image: cimg/python:3.12.1
+    steps:
+      - checkout
+      - run:
+          name: Version Checks
+          command: |
+            python --version
+            poetry --version
+      - run: poetry run pytest
+
 
 # Orchestrate jobs using workflows
 # See: https://circleci.com/docs/configuration-reference/#workflows
@@ -24,3 +36,4 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
+      - test
